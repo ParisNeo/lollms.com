@@ -1,21 +1,28 @@
-# the composer package lock file and install directory
-# Commit your application's lock file http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file
-# You may choose to ignore a library lock file http://getcomposer.org/doc/02-libraries.md#lock-file
-# /composer.lock
-/fuel/vendor
+# --- LoLLMs VS Coder ---
+.lollms/
 
-# the fuelphp document
-/docs/
+# --- OS & IDE Files ---
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
 
-# you may install these packages with `oil package`.
-# http://fuelphp.com/docs/packages/oil/package.html
-# /fuel/packages/auth/
-# /fuel/packages/email/
-# /fuel/packages/oil/
-# /fuel/packages/orm/
-# /fuel/packages/parser/
+# --- WordPress Specific (Safety Net) ---
+# Just in case you accidentally initialize git in the wrong root
+wp-config.php
+wp-content/uploads/
+wp-content/advanced-cache.php
+.htaccess
+*.sql
+*.log
 
-# dynamically generated files
-/fuel/app/logs/*/*/*
-/fuel/app/cache/*/*
-/fuel/app/config/crypt.php
+# --- Dependencies (Future Proofing) ---
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# --- Environment Secrets ---
+.env
+.env.local
