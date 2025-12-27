@@ -28,9 +28,9 @@ get_header();
             
             <?php if ( is_user_logged_in() ): $u = wp_get_current_user(); ?>
                 <h2 style="font-size: 2rem; margin-top:0;">Welcome, Operator <?php echo esc_html($u->user_login); ?></h2>
-                <div style="display: flex; gap: 15px; justify-content: center; margin-top: 30px;">
-                    <button class="btn btn-primary">📅 Reminders</button>
-                    <button class="btn btn-outline">🪙 Wallet</button>
+                <p style="color: var(--text-dim); margin-top: 10px;">System Online. Access LoLLMs OS to manage your node.</p>
+                <div style="margin-top: 30px;">
+                    <a href="/tools" class="btn btn-primary">🚀 Launch LoLLMs OS</a>
                 </div>
             <?php else: ?>
                 <h2 style="font-size: 2rem; margin-top:0;">Join the Network</h2>

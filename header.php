@@ -39,8 +39,7 @@
         <nav class="main-nav">
             <?php if ( is_user_logged_in() ): ?>
                 <!-- App Links -->
-                <a href="/tools" class="nav-link" style="color: var(--success);">Nexus OS</a>
-                <a href="/calendar" class="nav-link" style="color: var(--accent);">Calendar</a>
+                <a href="/tools" class="nav-link" style="color: var(--success);">LoLLMs OS</a>
             <?php endif; ?>
             
             <a href="/news" class="nav-link">Posts</a>
