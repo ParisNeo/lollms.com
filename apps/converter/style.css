@@ -1,0 +1,38 @@
+/* Converter Styles */
+.currency-ticker-wrap {
+    overflow-x: auto; white-space: nowrap; padding: 10px; 
+    background: rgba(0,0,0,0.2); border-radius: 10px; margin-bottom: 20px;
+}
+.ticker-item {
+    display: inline-block; padding: 0 10px; 
+    border-right: 1px solid rgba(255,255,255,0.1); font-size: 0.9rem;
+}
+.converter-grid {
+    display: grid; grid-template-columns: 1fr auto 1fr; 
+    gap: 10px; align-items: center; margin-top: 20px;
+}
+.conv-input {
+    font-size: 1.8rem; border: none; background: transparent; 
+    padding: 10px 0; margin-bottom: 5px; color: white; width: 100%;
+    font-weight: 700; text-align: center; outline: none;
+}
+.conv-input::placeholder { color: rgba(255,255,255,0.2); }
+.conv-equals { font-size: 2rem; color: var(--primary); text-align: center; font-weight: bold; }
+
+.converter-grid .input-group {
+    background: var(--bg-deep);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.converter-grid select.modal-input {
+    background: var(--surface);
+    border: none;
+    font-weight: bold;
+    color: var(--primary);
+    text-align: center;
+    cursor: pointer;
+}

@@ -10,7 +10,7 @@ get_header();
         
         <article>
             <header style="text-align: center; margin-bottom: 40px; border-bottom: 1px solid var(--border); padding-bottom: 30px;">
-                <div style="display: inline-block; padding: 4px 12px; background: rgba(99, 102, 241, 0.1); color: var(--primary); border-radius: 20px; font-size: 0.85rem; margin-bottom: 15px; font-family: monospace;">
+                <div style="display: inline-block; padding: 4px 12px; background: rgba(220, 38, 38, 0.1); color: var(--primary); border-radius: 20px; font-size: 0.85rem; margin-bottom: 15px; font-family: monospace;">
                     CMD: READ_NODE // <?php echo get_the_date('Y.m.d'); ?>
                 </div>
                 <h1 style="font-size: 2.5rem; line-height: 1.2; margin: 0;"><?php the_title(); ?></h1>

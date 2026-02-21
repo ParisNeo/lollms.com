@@ -104,6 +104,11 @@ add_action('rest_api_init', function () {
     register_rest_route('lollms/v1', '/suggestions', [
         'methods' => 'GET', 'callback' => 'lollms_api_get_suggestions', 'permission_callback' => function() { return is_user_logged_in(); }
     ]);
+    
+    // --- SETTINGS STORAGE ---
+    register_rest_route('lollms/v1', '/settings', [
+        'methods' => ['GET', 'POST'], 'callback' => 'lollms_api_user_settings', 'permission_callback' => function() { return is_user_logged_in(); }
+    ]);
 });
 
 // --- CALLBACKS ---
@@ -225,7 +230,41 @@ function lollms_api_get_suggestions() {
     return $wpdb->get_results($wpdb->prepare("SELECT * FROM {$wpdb->prefix}lollms_items WHERE user_id = %d AND is_checked = 1 ORDER BY last_bought DESC LIMIT 30", $user_id));
 }
 
-function lollms_download_shortcode() { /* ... */ }
+// --- USER SETTINGS STORAGE ---
+function lollms_api_user_settings($request) {
+    $uid = get_current_user_id();
+    if ($request->get_method() === 'POST') {
+        $params = $request->get_json_params();
+        if(isset($params['host'])) update_user_meta($uid, 'lollms_host', esc_url_raw($params['host']));
+        if(isset($params['key']) && !empty($params['key'])) update_user_meta($uid, 'lollms_key', sanitize_text_field($params['key']));
+        // We can ignore 'model' since the launcher doesn't need it, but keeping it won't hurt
+        return ['status' => 'saved'];
+    } else {
+        $key = get_user_meta($uid, 'lollms_key', true);
+        $reveal = $request->get_param('reveal');
+        
+        return [
+            'host' => get_user_meta($uid, 'lollms_host', true),
+            'key'  => ($reveal === 'true') ? $key : ($key ? '******' : '')
+        ];
+    }
+}
+
+function lollms_download_shortcode() { 
+    ob_start();
+    ?>
+    <div class="download-cta" style="margin-top: 40px;">
+        <a href="/download" class="btn btn-primary" style="font-size: 1.2rem; padding: 16px 40px; border-radius: 50px; box-shadow: 0 10px 30px rgba(220, 38, 38, 0.4); display: inline-flex; align-items: center; gap: 12px; font-weight: 800; letter-spacing: 0.5px; transition: all 0.3s ease;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            Get LoLLMs
+        </a>
+        <div style="margin-top: 15px; font-size: 0.9rem; color: var(--text-dim); font-weight: 500;">
+            Windows • Linux • macOS
+        </div>
+    </div>
+    <?php
+    return ob_get_clean();
+}
 add_shortcode('lollms_download_btn', 'lollms_download_shortcode');
 function lollms_fix_news_query($query) { /* ... */ }
 add_action('pre_get_posts', 'lollms_fix_news_query');
@@ -234,7 +273,7 @@ function lollms_get_first_image() { global $post; preg_match('/<img.+src=[\'"]([
 function lollms_custom_login_ui() {
     ?>
     <style type="text/css">
-        :root { --bg-deep: #020617; --bg-panel: #0f172a; --primary: #6366f1; --accent: #d946ef; --text-main: #f8fafc; --text-dim: #94a3b8; --border: rgba(148, 163, 184, 0.15); }
+        :root { --bg-deep: #0a0202; --bg-panel: #160505; --primary: #dc2626; --accent: #ea580c; --text-main: #fef2f2; --text-dim: #c8b0b0; --border: rgba(220, 38, 38, 0.2); }
         body.login { background-color: var(--bg-deep) !important; font-family: 'Inter', system-ui, sans-serif; color: var(--text-main); }
         .login h1 a { background-image: none !important; text-indent: 0 !important; font-size: 2.2rem; font-weight: 900; margin-bottom: 20px; display: block; text-align: center; color: var(--primary) !important; }
         .login form { background: var(--bg-panel) !important; border: 1px solid var(--border) !important; border-radius: 16px; box-shadow: 0 25px 50px rgba(0,0,0,0.5) !important; padding: 40px !important; }

@@ -1,0 +1,31 @@
+/* Crypto Styles */
+.crypto-ticker {
+    display: flex; justify-content: space-between; 
+    margin-bottom: 20px; background: rgba(255,255,255,0.05); 
+    padding: 15px; border-radius: 12px;
+}
+.add-wallet-section {
+    margin-top: 40px; border-top: 1px solid var(--border); 
+    padding-top: 20px; text-align: center;
+}
+.crypto-card {
+    background: var(--surface); border: 1px solid var(--border); padding: 18px 15px;
+    border-radius: 18px; margin-bottom: 12px; display: flex; align-items: center; gap: 15px;
+    cursor: pointer; transition: transform 0.2s, border-color 0.2s;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+.crypto-card:hover {
+    transform: translateY(-2px);
+    border-color: var(--primary);
+}
+.crypto-card:active {
+    transform: scale(0.98);
+}
+.crypto-icon { width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; color: white; flex-shrink: 0; }
+.crypto-icon.btc { background: #f7931a; }
+.crypto-icon.eth { background: #627eea; }
+.crypto-icon.lol { background: linear-gradient(135deg, var(--primary), var(--accent)); }
+.crypto-info { flex: 1; min-width: 0; }
+.crypto-name { font-weight: bold; }
+.crypto-address { font-size: 0.8rem; color: var(--text-dim); overflow: hidden; text-overflow: ellipsis; }
+.crypto-balance { font-weight: bold; color: var(--success); }

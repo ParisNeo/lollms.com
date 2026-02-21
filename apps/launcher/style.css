@@ -1,0 +1,68 @@
+/* Launcher Styles */
+.launcher-header {
+    text-align: center;
+    padding-top: 20px;
+    margin-bottom: 20px;
+}
+.launcher-header h1 {
+    font-size: 2rem;
+    margin-bottom: 5px;
+    letter-spacing: -1px;
+}
+.launcher-header p {
+    color: var(--text-dim);
+    font-size: 0.9rem;
+}
+
+.app-launcher-grid {
+    display: grid; 
+    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+    gap: 30px 15px; 
+    padding: 10px 0;
+    justify-items: center;
+}
+
+@media (max-width: 380px) {
+    .app-launcher-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.app-icon { 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    gap: 12px; 
+    cursor: pointer; 
+    transition: transform 0.2s, filter 0.2s; 
+    width: 100%;
+}
+.app-icon:hover { transform: translateY(-3px); filter: brightness(1.1); }
+.app-icon:active { transform: scale(0.95); filter: brightness(0.9); }
+
+.icon-box {
+    width: 70px; height: 70px; border-radius: 20px;
+    display: flex; align-items: center; justify-content: center; font-size: 2.2rem;
+    background: var(--surface); border: 1px solid var(--border);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+    transition: box-shadow 0.2s;
+}
+.app-icon:hover .icon-box {
+    box-shadow: 0 12px 25px rgba(0,0,0,0.4);
+}
+
+@media (min-width: 600px) {
+    .icon-box { width: 80px; height: 80px; font-size: 2.5rem; }
+}
+
+.icon-label { font-size: 0.8rem; font-weight: 600; color: var(--text-main); text-align: center; }
+
+/* Specific Icons Colors */
+.icon-chat { background: linear-gradient(135deg, #ec4899, #8b5cf6); color: white; border:none; }
+.icon-grocery { background: linear-gradient(135deg, #3b82f6, #1d4ed8); color: white; border:none; }
+.icon-wallet { background: linear-gradient(135deg, #10b981, #059669); color: white; border:none; }
+.icon-coupons { background: linear-gradient(135deg, #f43f5e, #be123c); color: white; border:none; }
+.icon-cal { background: linear-gradient(135deg, #8b5cf6, #7c3aed); color: white; border:none; }
+.icon-qr { background: linear-gradient(135deg, #f59e0b, #d97706); color: white; border:none; }
+.icon-crypto { background: linear-gradient(135deg, #06b6d4, #3b82f6); color: white; border:none; }
+.icon-conv { background: linear-gradient(135deg, #ec4899, #be185d); color: white; border:none; }

@@ -13,7 +13,7 @@ get_header();
         padding: 60px 0 40px;
         border-bottom: 1px solid var(--border);
         margin-bottom: 40px;
-        background: linear-gradient(to bottom, rgba(15, 23, 42, 0) 0%, rgba(99, 102, 241, 0.05) 100%);
+        background: linear-gradient(to bottom, rgba(22, 5, 5, 0) 0%, rgba(220, 38, 38, 0.05) 100%);
     }
 
     /* --- SORT BAR --- */
@@ -29,7 +29,7 @@ get_header();
         border-radius: 20px;
         font-size: 0.85rem;
         color: var(--text-dim);
-        background: rgba(15, 23, 42, 0.6);
+        background: rgba(22, 5, 5, 0.6);
         transition: all 0.2s;
     }
     .sort-btn:hover, .sort-btn.active {
@@ -48,7 +48,7 @@ get_header();
 
     /* --- CARD --- */
     .news-card {
-        background: rgba(30, 41, 59, 0.4);
+        background: rgba(38, 15, 15, 0.4);
         border: 1px solid var(--border);
         border-radius: 12px;
         overflow: hidden;
@@ -59,7 +59,7 @@ get_header();
     }
     .news-card:hover {
         transform: translateY(-5px);
-        box-shadow: 0 10px 30px rgba(99, 102, 241, 0.15);
+        box-shadow: 0 10px 30px rgba(220, 38, 38, 0.15);
         border-color: var(--primary);
     }
     
@@ -70,7 +70,7 @@ get_header();
 
     .card-image {
         height: 180px;
-        background: #1e293b;
+        background: #260f0f;
         overflow: hidden;
     }
     .card-image img { width: 100%; height: 100%; object-fit: cover; }

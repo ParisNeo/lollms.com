@@ -1,0 +1,42 @@
+/* Chat / Node Launcher Styles */
+.btn-icon-group {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid var(--border);
+    border-left: none;
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+    padding: 0 15px;
+    cursor: pointer;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+}
+.btn-icon-group:hover {
+    background: rgba(255,255,255,0.2);
+}
+.input-group {
+    display: flex;
+    gap: 0;
+    margin-bottom: 20px;
+}
+.input-group .modal-input {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    flex: 1;
+}
+
+#node-status-card {
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+@media (max-width: 480px) {
+    #app-chat {
+        padding: 15px;
+    }
+    #node-status-card {
+        padding: 15px;
+    }
+    h1 { font-size: 1.8rem; }
+}
