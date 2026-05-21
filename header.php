@@ -10,7 +10,7 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="application-name" content="LoLLMs Nexus">
+    <meta name="application-name" content="LoLLMs">
 
     <?php wp_head(); ?>
 </head>
@@ -22,11 +22,7 @@
         <!-- BRANDING -->
         <div class="site-branding">
             <a href="<?php echo home_url(); ?>">
-                <?php if ( has_custom_logo() ): ?>
-                    <?php the_custom_logo(); ?>
-                <?php else: ?>
-                    <span class="text-logo">LoLLMs_Nexus</span>
-                <?php endif; ?>
+                <span class="text-logo" style="font-size: 1.8rem;">LoLLMs</span>
             </a>
         </div>
 

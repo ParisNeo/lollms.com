@@ -84,11 +84,10 @@ get_header();
         <div class="hero-bg-glow"></div>
         <div class="nexus-container">
             <h1 class="hero-title">
-                The Nexus of<br>
-                <span style="background: linear-gradient(135deg, var(--primary), var(--accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; color: transparent;">Open AI</span>
+                LoLLMs
             </h1>
             <p class="hero-subtitle">
-                LoLLMs is your personal, private, and uncensored gateway to Large Language Multimodal Systems. Run it locally, connect globally.
+                The Lord of Large Language and Multimodal Systems. Your personal, private, and uncensored gateway to the future of AI. Run it locally, connect globally. One tool to rule them all.
             </p>
             
             <?php echo do_shortcode('[lollms_download_btn]'); ?>
